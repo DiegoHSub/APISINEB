@@ -13,5 +13,7 @@ namespace APISINEB.Repository.IRepository
         Task<UserLoginResponseDto> Login(UserLoginDto userLoginDto); //logueo
         Task<Users> Register(UserCreateDto userCreateDto); //Registro
 
+        ICollection<Libros> GetLibros(); //obtener libros
+
     }
 }

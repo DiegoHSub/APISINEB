@@ -127,6 +127,13 @@ namespace APISINEB.Repository
             return user;
         }
 
+        public ICollection<Libros> GetLibros()
+        {
+            //return _bd.Users.OrderBy(c=> c.Txt_Nombre).ToList();
+            var option = 1;
+            return _bd.Database.SqlQuery<Libros>($"exec librosPrueba {option}").ToList();
+        }
+
         //Metodo para encriptar contraseña con MD5 se usa tanto en el acceso como en el registro
         public static string getmd5(string password)
         {
