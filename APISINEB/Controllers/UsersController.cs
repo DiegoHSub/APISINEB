@@ -1,5 +1,6 @@
 ﻿using System.Net;
 using ApiPeliculas.Models;
+using APISINEB.Models;
 using APISINEB.Models.Dtos;
 using APISINEB.Repository.IRepository;
 using AutoMapper;
@@ -25,6 +26,7 @@ namespace APISINEB.Controllers
         }
 
         //[Authorize] //autorización por roles
+        [AllowAnonymous]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -107,6 +109,34 @@ namespace APISINEB.Controllers
             _responseApi.IsSuccess = true;
             _responseApi.Result = responseLogin;
             return Ok(_responseApi);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("dummy", Name= "getDummy")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult getDummy()
+        {
+            return Ok("Hola mundo");
+        }
+
+        [AllowAnonymous]
+        [HttpGet("libros", Name = "getLibros")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult getLibros()
+        {
+            var listlibros = _usRepo.GetLibros();
+
+            var listlibDto = new List<Libros>();
+            foreach (var lista in listlibros)
+            {
+                //pasar de lista usuarios a listUserDto
+                listlibDto.Add(_mapper.Map<Libros>(lista));
+            }
+            return Ok(listlibDto);
         }
     }
 }
