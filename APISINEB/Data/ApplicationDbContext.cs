@@ -11,5 +11,7 @@ namespace APISINEB.Data
 
         //aqui se agregan todos los Modelos (entidades) que se esten creando
         public DbSet<Users> Users { get; set; }
+
+        public DbSet<Modelos> Cat_Modelo { get; set; }
     }
 }

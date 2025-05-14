@@ -10,6 +10,9 @@ namespace APISINEB.SINEBMapper
             //aqui se comunican los DTO con el modelo categoria de ida y vuelta
             CreateMap<Users, UserDto>().ReverseMap();
             CreateMap<Users, UserCreateDto>().ReverseMap();
+
+            CreateMap<Modelos, ModeloDto>().ReverseMap();
+            CreateMap<Modelos, CreateModeloDto>().ReverseMap();
         }
     }
 }

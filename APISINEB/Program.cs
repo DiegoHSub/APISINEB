@@ -16,6 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(opciones =>
 
 //Agregamos los repositorios (servicios)
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IModeloReposity, ModeloRepository>();
 
 
 //agregamos el automapper
