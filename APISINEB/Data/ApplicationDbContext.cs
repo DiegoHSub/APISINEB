@@ -13,5 +13,7 @@ namespace APISINEB.Data
         public DbSet<Users> Users { get; set; }
 
         public DbSet<Modelos> Cat_Modelo { get; set; }
+
+        public DbSet<Motivos> Cat_Motivos { get; set; }
     }
 }

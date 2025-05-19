@@ -13,6 +13,9 @@ namespace APISINEB.SINEBMapper
 
             CreateMap<Modelos, ModeloDto>().ReverseMap();
             CreateMap<Modelos, CreateModeloDto>().ReverseMap();
+
+            CreateMap<Motivos, MotivoDto>().ReverseMap();
+            CreateMap<Motivos, CreateMotivoDto>().ReverseMap();
         }
     }
 }
