@@ -99,12 +99,6 @@ namespace APISINEB.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (_motRepo.ExistsMotivo(createMotivoDto.Cve_Motivo))
-            {
-                ModelState.AddModelError("", $"El id de motivo ya existe");
-                return StatusCode(404, ModelState);
-            }
-
             if (_motRepo.ExistsMotivoCve(createMotivoDto.Cve_Motivo))
             {
                 ModelState.AddModelError("", $"El número de motivo ya existe");
